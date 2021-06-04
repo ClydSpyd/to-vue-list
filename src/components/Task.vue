@@ -1,5 +1,5 @@
 <template>
-  <div @dblclick="toggleComplete(task.taskId)" :class="[task.completed&&'completed','taskDiv']">
+  <div @mouseleave="confState=false" @dblclick="toggleComplete(task.taskId)" :class="[task.completed&&'completed','taskDiv']">
 
     <div :class="['tab', priorityClass]"><p>{{priorityClass}}</p></div>
 
@@ -70,6 +70,16 @@ export default {
     cursor: pointer;
     position: relative;
     margin: 3px 0;
+
+    *{
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                    supported by Chrome, Edge, Opera and Firefox */
+}
 
     &:hover{
       .tab{
